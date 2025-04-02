@@ -4,7 +4,11 @@ const cors = require("cors");
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: 'https://task-manager-frontend-one-beta.vercel.app', // Allow only your frontend
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true // If using cookies or authentication
+}));
 
 
 mongoose.connect("mongodb+srv://smitpipalva:A5uCOpGoTLsYFr45@cluster0.exilunf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
